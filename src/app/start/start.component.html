@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="container">
+    <input type="text" [value]="this.currentLocal.name" #currLocal (input)="currLocal.value">
+  </div>
+    <button type="button" class="btn btn-primary col-auto-3">
+        Go her:{{i}}
+    </button>
+  <div class="btn-group col-auto-3" dropdown>
+    <button id="button-animated" dropdownToggle type="button" class="btn btn-primary dropdown-toggle"
+            aria-controls="dropdown-animated">
+      Escolhar um lugar <span class="caret"></span>
+    </button>
+    <ul id="dropdown-animated" *dropdownMenu class="dropdown-menu container"
+        role="menu" aria-labelledby="button-animated">
+      <li role="menuitem" #li (click)="Go(i)" *ngFor="let item of this.currentLocal.Exits, let i = index">{{i}} - {{this.currentLocal.Exits[i].name}}</li>
+      
+    </ul>
+    <br>
+    <button type="button" class="btn btn-lg btn-primary" *ngIf="this.doorVisiable" (click)="GoDoor()">
+        Go through the door
+    </button>
+
+    <button type="button" class="btn btn-lg btn-primary" (click)="checkObj()">
+        checkObj
+      </button>
+
+    <button type="button" class="btn btn-lg btn-primary" (click)="hideObj()">
+        hideObj
+      </button>
+  </div>
+</div>
